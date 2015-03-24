@@ -8053,6 +8053,9 @@ function Calendar_constructor(element, overrides) {
 		else if (typeof options.height === 'number') { // exists and not 'auto'
 			suggestedViewHeight = options.height - (headerElement ? headerElement.outerHeight(true) : 0);
 		}
+    else if (typeof options.height !== 'undefined' && options.height === 'parent') { // take the parent height
+      // suggestedViewHeight = $(_element).parent().height() - (headerElement ? headerElement.outerHeight(true) : 0);
+    }
 		else {
 			suggestedViewHeight = Math.round(content.width() / Math.max(options.aspectRatio, .5));
 		}
