@@ -5720,7 +5720,7 @@ var TimeGrid = Grid.extend({
       // Auto-update the position of the time element and set its initial position.
       this.currentTimeInterval = setInterval(this.setTimeline, (1000 * 60));
       $(window).on("resize", this.setTimeline);
-      this.setTimeline();
+      setTimeout(this.setTimeline, 10);
     }
   },
 
