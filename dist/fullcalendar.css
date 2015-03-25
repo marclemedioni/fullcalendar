@@ -666,7 +666,7 @@ a.fc-more:hover {
 
 /* time indicator */
 hr.fc-timeline {
- 	position: absolute;
+ 	position: absolute !important;
  	border: 0px;
  	font-size: 0px;
  	height: 3px;
