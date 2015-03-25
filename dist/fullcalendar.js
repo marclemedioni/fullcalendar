@@ -6897,6 +6897,10 @@ var View = fc.View = Class.extend({
 		scrollState = this.computeInitialScroll(scrollState);
 		this.forceScroll(scrollState);
 
+    if(this.timeGrid) {
+      this.timeGrid.renderTimeIndicator();
+    }
+
 		this.triggerRender();
 	},
 
