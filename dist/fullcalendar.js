@@ -5656,9 +5656,6 @@ var TimeGrid = Grid.extend({
 	constructor: function() {
 		Grid.apply(this, arguments); // call the super-constructor
     this.processOptions();
-
-    // Render the time indicator, if applicable.
-    this.renderTimeIndicator();
 	},
 
   destroy: function() {
@@ -5674,7 +5671,7 @@ var TimeGrid = Grid.extend({
   renderTimeIndicator: function()
   {
     // Detect if the view has the required elements to facilitate showing the current time.
-    if (this.showTimeIndicator && (this.view.type === "agendaWeek" || this.view.type === "agendaDay"))
+    if (this.showTimeIndicator && this.view.dayGrid && this.view.dayGrid.dateToCellOffset && this.el.find(".fc-today").length > 0 && this.el.find(".fc-axis").length > 0)
     {
       // Define a function to update the position of the 'current time' element.
       // Note that this takes slotDuration into account.
@@ -5739,6 +5736,9 @@ var TimeGrid = Grid.extend({
 	renderBusinessHours: function() {
 		var events = this.view.calendar.getBusinessHoursEvents();
 		this.businessHourSegs = this.renderFill('businessHours', this.eventsToSegs(events), 'bgevent');
+
+    // Render the time indicator, if applicable.
+    this.renderTimeIndicator();
 	},
 
 
