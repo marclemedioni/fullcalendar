@@ -3389,10 +3389,12 @@ var Grid = fc.Grid = RowRenderer.extend({
 	headCellHtml: function(cell) {
 		var view = this.view;
 		var date = cell.start;
+		var today = view.calendar.getNow().stripTime();
+		var todayClass = date.isSame(today, 'day') ? 'fc-day-header-today' : '';
 
 		return '' +
-			'<th class="fc-day-header ' + view.widgetHeaderClass + ' fc-' + dayIDs[date.day()] + '">' +
-				htmlEscape(date.format(this.colHeadFormat)) +
+			'<th class="fc-day-header ' + view.widgetHeaderClass + ' fc-' + dayIDs[date.day()] + ' ' + todayClass + '">' +
+			htmlEscape(date.format(this.colHeadFormat)) +
 			'</th>';
 	},
 
