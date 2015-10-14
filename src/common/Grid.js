@@ -412,7 +412,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 		this.view.calendar.normalizeEventRange(fakeEvent);
 
 		// this extra className will be useful for differentiating real events from mock events in CSS
-		fakeEvent.className = (fakeEvent.className || []).concat('fc-helper');
+		fakeEvent.className = (fakeEvent.className || []).concat(' fc-helper');
 
 		// if something external is being dragged in, don't render a resizer
 		if (!sourceSeg) {

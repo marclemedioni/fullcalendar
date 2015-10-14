@@ -21,6 +21,7 @@ module.exports = function(config) {
 			// to undo: `bower update jquery`
 
 			'../lib/moment/moment.js',
+			'../lib/underscore/underscore.js',
 			'../lib/jquery/dist/jquery.js',
 			'../lib/jquery-ui/jquery-ui.js',
 

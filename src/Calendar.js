@@ -474,19 +474,6 @@ function Calendar_constructor(element, overrides) {
 			windowResizeProxy = debounce(windowResize, options.windowResizeDelay); // prevents rapid calls
 			$(window).resize(windowResizeProxy);
 		}
-
-		content.on('mousewheel', debounce(function(event) {
-			if(t.view.type === "month") {
-				var delta = event.originalEvent.wheelDelta;
-				if (delta < 0) {
-					prev();
-				}
-				if (delta > 0) {
-					next();
-				}
-			}
-
-		}, 300, true));
 	}
 	
 	

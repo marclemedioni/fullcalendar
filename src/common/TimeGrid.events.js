@@ -38,6 +38,9 @@ TimeGrid.mixin({
 		var i, seg;
 		var col, colSegs;
 		var containerEl;
+		var availabilityFilter = function(col) {
+			return col.event.isAvailability;
+		};
 
 		segCols = this.groupSegCols(segs); // group into sub-arrays, and assigns 'col' to each seg
 
@@ -45,7 +48,7 @@ TimeGrid.mixin({
 
 		for (col = 0; col < segCols.length; col++) { // iterate each column grouping
 			colSegs = segCols[col];
-			placeSlotSegs(colSegs); // compute horizontal coordinates, z-index's, and reorder the array
+			placeSlotSegs(_.reject(colSegs, availabilityFilter)); // compute horizontal coordinates, z-index's, and reorder the array
 
 			containerEl = $('<div class="fc-event-container"/>');
 

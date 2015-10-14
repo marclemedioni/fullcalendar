@@ -6,12 +6,12 @@
 
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
-		define([ 'jquery', 'moment' ], factory);
+		define([ 'jquery', 'moment', 'underscore' ], factory);
 	}
 	else if (typeof exports === 'object') { // Node/CommonJS
-		module.exports = factory(require('jquery'), require('moment'));
+		module.exports = factory(require('jquery'), require('moment'), require('underscore'));
 	}
 	else {
-		factory(jQuery, moment);
+		factory(jQuery, moment, _);
 	}
-})(function($, moment) {
+})(function($, moment, _) {

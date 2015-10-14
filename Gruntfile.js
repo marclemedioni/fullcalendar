@@ -192,6 +192,7 @@ module.exports = function(grunt) {
 		'copy:archiveMoment',
 		'copy:archiveJQuery',
 		'concat:archiveJQueryUI',
+		'concat:archiveUnderscore',
 		'copy:archiveDemos',
 		'copy:archiveDemoTheme',
 		'copy:archiveMisc',
@@ -236,6 +237,11 @@ module.exports = function(grunt) {
 			'lib/jquery-ui/ui/minified/draggable.min.js'
 		],
 		dest: 'build/temp/archive/lib/jquery-ui.custom.min.js'
+	};
+
+	config.concat.archiveUnderscore = {
+		src: 'lib/underscore/underscore.js',
+		dest: 'build/temp/archive/lib/underscore.js'
 	};
 
 	// copy demo files into ./demos/ directory

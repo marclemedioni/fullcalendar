@@ -9,7 +9,8 @@ module.exports = {
 			module: false,
 			require: false,
 			moment: false,
-			jQuery: false
+			jQuery: false,
+			'_': false
 		},
 		es3: true,
 		bitwise: true,
