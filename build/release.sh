@@ -10,7 +10,7 @@ then
 fi
 
 grunt bump --setversion=$version && \
-grunt dist && \
+grunt dist --force && \
 grunt shell:no-assume-unchanged && \
 git add -f dist/*.js dist/*.css dist/lang/*.js && \
 git commit -a -e -m "version $version" && \

@@ -1,24 +1,24 @@
 /*!
- * FullCalendar v2.3.1
+ * FullCalendar v2.3.4
  * Docs & License: http://fullcalendar.io/
  * (c) 2015 Adam Shaw
  */
 
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
-		define([ 'jquery', 'moment' ], factory);
+		define([ 'jquery', 'moment', 'underscore' ], factory);
 	}
 	else if (typeof exports === 'object') { // Node/CommonJS
-		module.exports = factory(require('jquery'), require('moment'));
+		module.exports = factory(require('jquery'), require('moment'), require('underscore'));
 	}
 	else {
-		factory(jQuery, moment);
+		factory(jQuery, moment, _);
 	}
-})(function($, moment) {
+})(function($, moment, _) {
 
 ;;
 
-var fc = $.fullCalendar = { version: "2.3.1" };
+var fc = $.fullCalendar = { version: "2.3.4" };
 var fcViews = fc.views = {};
 
 
@@ -3193,7 +3193,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 		this.view.calendar.normalizeEventRange(fakeEvent);
 
 		// this extra className will be useful for differentiating real events from mock events in CSS
-		fakeEvent.className = (fakeEvent.className || []).concat('fc-helper');
+		fakeEvent.className = (fakeEvent.className || []).concat(' fc-helper');
 
 		// if something external is being dragged in, don't render a resizer
 		if (!sourceSeg) {
@@ -6247,6 +6247,9 @@ TimeGrid.mixin({
 		var i, seg;
 		var col, colSegs;
 		var containerEl;
+		var availabilityFilter = function(col) {
+			return col.event.isAvailability;
+		};
 
 		segCols = this.groupSegCols(segs); // group into sub-arrays, and assigns 'col' to each seg
 
@@ -6254,7 +6257,7 @@ TimeGrid.mixin({
 
 		for (col = 0; col < segCols.length; col++) { // iterate each column grouping
 			colSegs = segCols[col];
-			placeSlotSegs(colSegs); // compute horizontal coordinates, z-index's, and reorder the array
+			placeSlotSegs(_.reject(colSegs, availabilityFilter)); // compute horizontal coordinates, z-index's, and reorder the array
 
 			containerEl = $('<div class="fc-event-container"/>');
 
@@ -8002,19 +8005,6 @@ function Calendar_constructor(element, overrides) {
 			windowResizeProxy = debounce(windowResize, options.windowResizeDelay); // prevents rapid calls
 			$(window).resize(windowResizeProxy);
 		}
-
-		content.on('mousewheel', debounce(function(event) {
-			if(t.view.type === "month") {
-				var delta = event.originalEvent.wheelDelta;
-				if (delta < 0) {
-					prev();
-				}
-				if (delta > 0) {
-					next();
-				}
-			}
-
-		}, 300, true));
 	}
 	
 	
