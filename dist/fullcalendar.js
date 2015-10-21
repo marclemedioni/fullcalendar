@@ -1,5 +1,5 @@
 /*!
- * FullCalendar v2.3.3
+ * FullCalendar v2.3.5
  * Docs & License: http://fullcalendar.io/
  * (c) 2015 Adam Shaw
  */
@@ -18,7 +18,7 @@
 
 ;;
 
-var fc = $.fullCalendar = { version: "2.3.3" };
+var fc = $.fullCalendar = { version: "2.3.5" };
 var fcViews = fc.views = {};
 
 
@@ -3470,6 +3470,10 @@ Grid.mixin({
 
 		for (i = 0; i < segs.length; i++) {
 			seg = segs[i];
+
+			if(this.view.name === 'month' && events[i].isAvailability) {
+				continue;
+			}
 
 			if (isBgEvent(seg.event)) {
 				bgSegs.push(seg);

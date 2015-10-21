@@ -21,6 +21,10 @@ Grid.mixin({
 		for (i = 0; i < segs.length; i++) {
 			seg = segs[i];
 
+			if(this.view.name === 'month' && events[i].isAvailability) {
+				continue;
+			}
+
 			if (isBgEvent(seg.event)) {
 				bgSegs.push(seg);
 			}
