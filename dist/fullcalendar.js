@@ -1,5 +1,5 @@
 /*!
- * FullCalendar v2.3.4
+ * FullCalendar v2.3.3
  * Docs & License: http://fullcalendar.io/
  * (c) 2015 Adam Shaw
  */
@@ -18,7 +18,7 @@
 
 ;;
 
-var fc = $.fullCalendar = { version: "2.3.4" };
+var fc = $.fullCalendar = { version: "2.3.3" };
 var fcViews = fc.views = {};
 
 
