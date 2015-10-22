@@ -46,7 +46,6 @@ var TimeGrid = Grid.extend({
     // Detect if the view has the required elements to facilitate showing the current time.
     if (this.showTimeIndicator &&
 			(this.view.name === 'agendaDay' || this.view.name === 'agendaWeek') &&
-			this.view.dayGrid.dateToCellOffset &&
 			this.el.find(".fc-today").length > 0 &&
 			this.el.find(".fc-axis").length > 0)
     {
