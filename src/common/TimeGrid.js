@@ -46,7 +46,6 @@ var TimeGrid = Grid.extend({
     // Detect if the view has the required elements to facilitate showing the current time.
     if (this.showTimeIndicator &&
 			(this.view.name === 'agendaDay' || this.view.name === 'agendaWeek') &&
-			this.view.dayGrid.dateToCellOffset &&
 			this.el.find(".fc-today").length > 0 &&
 			this.el.find(".fc-axis").length > 0)
     {
@@ -65,7 +64,7 @@ var TimeGrid = Grid.extend({
           {
             var width    = this.el.find(".fc-today").outerWidth();
             var height   = this.el.find(".fc-axis.fc-time").outerHeight() + 1; // +1 pixel for the border?
-            var left     = this.el.find(".fc-axis.fc-time").outerWidth() + (this.view.dayGrid.dateToCellOffset(now) * width);
+            var left     = this.el.find(".fc-axis.fc-time").outerWidth();
 
             // Percentage is the current time in seconds - the minTime in seconds divided by the slotDuration in seconds divided by 0.24 (24 hour day).
             var perc     = (((now.hours() * 3600) + (now.minutes() * 60) + now.seconds() - (minTime.hours() * 3600) - (minTime.minutes() * 60) - minTime.seconds()) / (duration / 1000)) / 0.24;
