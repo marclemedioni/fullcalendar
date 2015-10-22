@@ -1,5 +1,5 @@
 /*!
- * FullCalendar v2.3.5
+ * FullCalendar v2.3.6
  * Docs & License: http://fullcalendar.io/
  * (c) 2015 Adam Shaw
  */
@@ -18,7 +18,7 @@
 
 ;;
 
-var fc = $.fullCalendar = { version: "2.3.5" };
+var fc = $.fullCalendar = { version: "2.3.6" };
 var fcViews = fc.views = {};
 
 
@@ -5680,7 +5680,11 @@ var TimeGrid = Grid.extend({
   renderTimeIndicator: function()
   {
     // Detect if the view has the required elements to facilitate showing the current time.
-    if (this.showTimeIndicator && this.view.dayGrid && this.view.dayGrid.dateToCellOffset && this.el.find(".fc-today").length > 0 && this.el.find(".fc-axis").length > 0)
+    if (this.showTimeIndicator &&
+			(this.view.name === 'agendaDay' || this.view.name === 'agendaWeek') &&
+			this.view.dayGrid.dateToCellOffset &&
+			this.el.find(".fc-today").length > 0 &&
+			this.el.find(".fc-axis").length > 0)
     {
       // Define a function to update the position of the 'current time' element.
       // Note that this takes slotDuration into account.
