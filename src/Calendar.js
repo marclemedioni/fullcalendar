@@ -556,6 +556,10 @@ function Calendar_constructor(element, overrides) {
 			}
 		}
 
+		if(currentView.timeGrid) {
+			currentView.timeGrid.renderTimeIndicator();
+		}
+
 		unfreezeContentHeight(); // undo any lone freezeContentHeight calls
 		ignoreWindowResize--;
 	}
