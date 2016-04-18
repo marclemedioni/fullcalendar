@@ -21,7 +21,7 @@ Grid.mixin({
 		for (i = 0; i < segs.length; i++) {
 			seg = segs[i];
 
-			if(this.view.name === 'month' && events[i].isAvailability) {
+			if(this.view.name === 'month' && seg.event.isAvailability) {
 				continue;
 			}
 

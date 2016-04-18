@@ -1,7 +1,7 @@
 /*!
- * FullCalendar v2.3.7
- * Docs & License: http://fullcalendar.io/
- * (c) 2015 Adam Shaw
+ * <%= meta.title %> v<%= meta.version %>
+ * Docs & License: <%= meta.homepage %>
+ * (c) <%= meta.copyright %>
  */
 
 (function(factory) {
@@ -18,7 +18,7 @@
 
 ;;
 
-var fc = $.fullCalendar = { version: "2.3.7" };
+var fc = $.fullCalendar = { version: "<%= meta.version %>" };
 var fcViews = fc.views = {};
 
 
@@ -3471,7 +3471,7 @@ Grid.mixin({
 		for (i = 0; i < segs.length; i++) {
 			seg = segs[i];
 
-			if(this.view.name === 'month' && events[i].isAvailability) {
+			if(this.view.name === 'month' && seg.event.isAvailability) {
 				continue;
 			}
 
@@ -10883,3 +10883,4 @@ fcViews.agendaDay = {
 
 return fc; // export for Node/CommonJS
 });
+//@ sourceMappingURL=fullcalendar.js.map
