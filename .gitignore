@@ -1,6 +1,5 @@
 build/temp
 dist/src
-*.map
 
 # npm modules
 node_modules

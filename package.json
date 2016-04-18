@@ -1,7 +1,7 @@
 {
   "name": "fullcalendar",
   "title": "FullCalendar",
-  "version": "2.3.8",
+  "version": "2.3.9",
   "description": "Full-sized drag & drop event calendar",
   "keywords": [
     "calendar",
@@ -27,6 +27,7 @@
   "copyright": "2015 Adam Shaw",
   "dependencies": {
     "jquery": ">=1.7.1",
+    "karma": "^0.13.22",
     "moment": ">=2.5.0",
     "underscore": "^1.8.3"
   },

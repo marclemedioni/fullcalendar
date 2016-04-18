@@ -1,7 +1,7 @@
 /*!
- * <%= meta.title %> v<%= meta.version %> Print Stylesheet
- * Docs & License: <%= meta.homepage %>
- * (c) <%= meta.copyright %>
+ * FullCalendar v2.3.9 Print Stylesheet
+ * Docs & License: http://fullcalendar.io/
+ * (c) 2015 Adam Shaw
  */
 
 /*
@@ -200,5 +200,3 @@ tbody,
 .fc button {
 	display: none; /* don't display any button-related controls */
 }
-
-//@ sourceMappingURL=fullcalendar.print.css.map

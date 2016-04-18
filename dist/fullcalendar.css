@@ -1,7 +1,7 @@
 /*!
- * <%= meta.title %> v<%= meta.version %> Stylesheet
- * Docs & License: <%= meta.homepage %>
- * (c) <%= meta.copyright %>
+ * FullCalendar v2.3.9 Stylesheet
+ * Docs & License: http://fullcalendar.io/
+ * (c) 2015 Adam Shaw
  */
 
 
@@ -1070,5 +1070,3 @@ be a descendant of the grid when it is being dragged.
 .fc-time-grid-event .fc-resizer:after {
 	content: "=";
 }
-
-//@ sourceMappingURL=fullcalendar.css.map
